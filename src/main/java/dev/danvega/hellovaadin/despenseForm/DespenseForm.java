@@ -1,11 +1,15 @@
 package dev.danvega.hellovaadin.despenseForm;
 
+import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
+
+import java.awt.*;
 
 @Route("dispense")
 public class DespenseForm extends VerticalLayout {
@@ -30,6 +34,20 @@ public class DespenseForm extends VerticalLayout {
 
         add(form);
 
-        add(new H1("Hello World"));
+        add(new H1("Lezcano Tech"));
+
+        setAlignItems(Alignment.CENTER);
+    }
+
+    class Form extends FormLayout{
+
+//        Binder binder = new BeanValidationBinder()
+        Form(){
+            var addButton = new Button("Add List");
+            var saveButton = new Button("Save");
+            Binder<Object> binder = null;
+            binder.bindInstanceFields(this);
+            add(String.valueOf(addButton));
+        }
     }
 }
