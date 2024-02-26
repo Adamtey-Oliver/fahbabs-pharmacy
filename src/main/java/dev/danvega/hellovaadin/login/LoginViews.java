@@ -18,8 +18,8 @@ public class LoginViews extends Composite<LoginOverlay> {
         loginOverlay.addLoginListener(event -> {
             if ("user".equals(event.getUsername())) {
                 UI.getCurrent().navigate("user");
-            }else if ("admin".equals(event.getUsername())){
-                UI.getCurrent().navigate(AdminView.class);
+            }else if ("dashboard".equals(event.getUsername())){
+                UI.getCurrent().navigate("dashboard");
             } else {
                 Notification.show("Wrong credentials");
             }
